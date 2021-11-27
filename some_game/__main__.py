@@ -1,7 +1,5 @@
 import os
-
-
-os.environ['RAYLIB_BIN_PATH'] = r'C:\Users\StewM\Documents\BYU Idaho\Fall 2021\programmingCourses\CSE210_personal\cseFinalProject\some_game\raylib-2.0.0-Win64-mingw\lib'
+os.environ['RAYLIB_BIN_PATH'] = r'C:\Users\StewM\Documents\BYU Idaho\Fall 2021\programmingCourses\CSE210_personal\cseFinalProject\fish_run\some_game\raylib-2.0.0-Win64-mingw\lib'
 
 import random
 from game import constants
@@ -15,10 +13,10 @@ from game.physics_service import PhysicsService
 from game.audio_service import AudioService
 
 # TODO: Add imports similar to the following when you create these classes
-from game.scoreboard import ScoreBoard
-# from game.brick import Brick
-# from game.ball import Ball
-# from game.paddle import Paddle
+from game.fish import Fish
+# from game.shark import Shark
+# from game.food import Food
+# from game.scoreboard import Scoreboard
 # from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
@@ -29,13 +27,24 @@ def main():
     # create the cast {key: tag, value: list}
     cast = {}
 
-    cast["bricks"] = []
+    fishes = []
+    
+    x = constants.FISH_X
+    y = constants.FISH_Y
+    position = Point(x, y)
+    fish = Fish()
+    # velocity = Point(0, 0)
+    # fish.set_velocity(velocity)
+    fish.set_position(position)
+    fishes.append(fish)
+
+    cast["fish"] = fishes
     # TODO: Create bricks here and add them to the list
 
-    cast["balls"] = []
+    cast["shark"] = []
     # TODO: Create a ball here and add it to the list
 
-    cast["paddle"] = []
+    cast["food"] = []
     # TODO: Create a paddle here and add it to the list
 
     # Create the script {key: tag, value: list}
@@ -57,7 +66,7 @@ def main():
 
 
     # Start the game
-    output_service.open_window("Batter");
+    output_service.open_window("Fish Run")
     audio_service.start_audio()
     audio_service.play_sound(constants.SOUND_START)
     
