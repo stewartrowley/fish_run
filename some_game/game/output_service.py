@@ -34,13 +34,13 @@ class OutputService:
             self (OutputService): An instance of OutputService.
         """ 
         raylibpy.begin_drawing()
-        raylibpy.clear_background(raylibpy.BLACK)
+        raylibpy.clear_background(raylibpy.BLUE)
 
     def draw_box(self, x, y, width, height):
         """
         Draws at rectangular box with the provided specifications.
         """
-        raylibpy.draw_rectangle(x, y, width, height, raylibpy.BLUE)
+        raylibpy.draw_rectangle(x, y, width, height, raylibpy.WHITE)
 
     def draw_text(self, x, y, text, is_dark_text):
         """
