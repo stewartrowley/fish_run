@@ -29,6 +29,7 @@ class Actor:
         self._width = 0
         self._height = 0
         self._image = ""
+        self._points = 0
 
     def get_width(self):
         return self._width
@@ -83,6 +84,12 @@ class Actor:
         return self._text
 
     def set_text(self, text):
+        """Updates the actor's text to the given value.
+        
+        Args:
+            self (Actor): An instance of Actor.
+            text (string): The given value.
+        """
         self._text = text
 
     def get_velocity(self):
@@ -146,3 +153,11 @@ class Actor:
 
     def has_image(self):
         return self._image != ""
+
+    def set_points(self, points):
+
+        self._points = points
+
+    def get_points(self):
+
+        return self._points

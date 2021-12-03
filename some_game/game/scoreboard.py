@@ -1,4 +1,5 @@
 import random
+from game import constants
 from game.actor import Actor
 from game.point import Point
 
@@ -18,10 +19,13 @@ class ScoreBoard(Actor):
             self (Score): an instance of Score.
         """
         super().__init__()
+        self.actor = Actor()
         self._points = 0
-        position = Point(1, 0)
-        self.set_position(position)
-        self.set_text(f"Score: {self._points}")
+        # self.set_text(f"Score: {self._points}")
+        self.set_height(constants.SCOREBOARD_HEIGHT)
+        self.set_width(constants.SCOREBOARD_WIDTH)
+        self.add_points(self._points)
+
     
     def add_points(self, points):
         """Adds the given points to the running total and updates the text.
@@ -31,4 +35,17 @@ class ScoreBoard(Actor):
             points (integer): The points to add.
         """
         self._points += points
+        self.set_points(self._points)
         self.set_text(f"Score: {self._points}")
+        return self._points
+        
+        
+        # self.score.append(self._points)
+
+        
+
+ 
+
+    # def display_points(self):
+    #     total = sum(self.score)
+    #     return total

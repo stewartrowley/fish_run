@@ -11,7 +11,9 @@ class MoveActorsAction(Action):
             for actor in group:
                 if actor.get_velocity():
                     self._move_actor(actor)
-                    self._move_actor(cast['shark'][0])
+                    for shark in cast['shark']:
+                        self._move_actor(shark)
+                    # self._move_actor(cast['shark'])
         # self._move_actor( cast['balls'][0])
 
     def _move_actor(self, actor):

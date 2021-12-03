@@ -7,4 +7,5 @@ class Shark(Actor):
 
         self.set_width(constants.SHARK_WIDTH)
         self.set_height(constants.SHARK_HEIGHT)
+
         

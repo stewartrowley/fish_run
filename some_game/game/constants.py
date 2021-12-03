@@ -1,4 +1,6 @@
 import os
+import random
+from random import randint
 
 MAX_X = 800
 MAX_Y = 600
@@ -16,17 +18,30 @@ SOUND_START = os.path.join(os.getcwd(), "./some_game/assets/start.wav")
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./some_game/assets/boing.wav")
 SOUND_OVER = os.path.join(os.getcwd(), "./some_game/assets/over.wav")
 
-SHARK_X = MAX_X / 2
-SHARK_Y = MAX_Y - 125
+SHARK_X = random.randint(50, MAX_X)
+SHARK_Y = random.randint(50 ,MAX_Y)
 
-FISH_X = MAX_X / 2
-FISH_Y = MAX_Y - 25
+SHARK_SUPPLY = 2
 
-SHARK_DX = .8
-SHARK_DY = SHARK_DX * 1
+FISH_X = 400
+FISH_Y = 575
 
-BRICK_WIDTH = 48
-BRICK_HEIGHT = 24
+SHARK_DX = 5
+SHARK_DY = 5
+
+LEVEL_ONE = 4
+LEVEL_TWO = 6
+LEVEL_THREE = 8
+
+SCOREBOARD_WIDTH = 48
+SCOREBOARD_HEIGHT = 24
+
+FOOD_WIDTH = 24
+FOOD_HEIGHT = 24
+
+FOOD_SUPPLY = 10
+BAD_FOOD_SUPPLY = 3
+# FOOD_POINTS = random.randint(1, 60)
 
 BRICK_SPACE = 5
 

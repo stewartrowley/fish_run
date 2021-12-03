@@ -40,18 +40,29 @@ class OutputService:
         """
         Draws at rectangular box with the provided specifications.
         """
-        raylibpy.draw_rectangle(x, y, width, height, raylibpy.WHITE)
+        raylibpy.draw_rectangle(x, y, width, height, raylibpy.LIGHTGRAY)
+        # if actor.get_points < 0:
+        #     raylibpy.draw_rectangle(x, y, width, height, raylibpy.RED)
+        # elif actor.get_points >= 0 or actor. get_points < 90: 
+        #     raylibpy.draw_rectangle(x, y, width, height, raylibpy.GREEN)
+        # elif actor.get_points >= 90:
+        #     raylibpy.draw_rectangle(x, y, width, height, raylibpy.BLUE)
 
     def draw_text(self, x, y, text, is_dark_text):
         """
         Outputs the provided text at the desired location.
         """
-        color = raylibpy.WHITE
+        color = raylibpy.GREEN
 
         if is_dark_text:
-            color = raylibpy.BLACK
+            color = raylibpy.WHITE
 
         raylibpy.draw_text(text, x + 5, y + 5, constants.DEFAULT_FONT_SIZE, color)
+        raylibpy.draw_text(text,
+        x + constants.DEFAULT_TEXT_OFFSET,
+        y + constants.DEFAULT_TEXT_OFFSET,
+        constants.DEFAULT_FONT_SIZE,
+        color)
 
     def draw_image(self, x, y, image):
         """
