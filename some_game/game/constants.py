@@ -10,13 +10,16 @@ DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_BRICK = os.path.join(os.getcwd(), "./batter/assets/brick-3.png")
-IMAGE_PADDLE = os.path.join(os.getcwd(), "./batter/assets/bat.png")
-IMAGE_BALL = os.path.join(os.getcwd(), "./batter/assets/ball.png")
+IMAGE_BAD_FOOD = os.path.join(os.getcwd(), "./some_game/assets/metal.png")
+IMAGE_FOOD = os.path.join(os.getcwd(), "./some_game/assets/shrimp.png")
+IMAGE_FISH = os.path.join(os.getcwd(), "./some_game/assets/fish.png")
+IMAGE_SHARK = os.path.join(os.getcwd(), "./some_game/assets/shark.png")
+IMAGE_SHARK2 = os.path.join(os.getcwd(), "./some_game/assets/shark2edit.png")
+IMAGE_OCTOPUS = os.path.join(os.getcwd(), "./some_game/assets/octopus.png")
 
-SOUND_START = os.path.join(os.getcwd(), "./some_game/assets/start.wav")
-SOUND_BOUNCE = os.path.join(os.getcwd(), "./some_game/assets/boing.wav")
-SOUND_OVER = os.path.join(os.getcwd(), "./some_game/assets/over.wav")
+SOUND_START = os.path.join(os.getcwd(), "./some_game/assets/mixkit-diving-sea-ambience.wav")
+SOUND_BOUNCE = os.path.join(os.getcwd(), "./some_game/assets/mixkit-sea-water-splash.wav")
+SOUND_OVER = os.path.join(os.getcwd(), "./some_game/assets/mixkit-short-transition-sweep.wav")
 
 SHARK_X = random.randint(50, MAX_X)
 SHARK_Y = random.randint(50 ,MAX_Y)
@@ -24,7 +27,7 @@ SHARK_Y = random.randint(50 ,MAX_Y)
 SHARK_SUPPLY = 2
 
 FISH_X = 400
-FISH_Y = 575
+FISH_Y = 525
 
 SHARK_DX = 5
 SHARK_DY = 5
@@ -36,8 +39,11 @@ LEVEL_THREE = 8
 SCOREBOARD_WIDTH = 48
 SCOREBOARD_HEIGHT = 24
 
-FOOD_WIDTH = 24
-FOOD_HEIGHT = 24
+FOOD_WIDTH = 12
+FOOD_HEIGHT = 12
+
+BAD_FOOD_WIDTH = 13
+BAD_FOOD_HEIGHT = 13
 
 FOOD_SUPPLY = 10
 BAD_FOOD_SUPPLY = 3
@@ -45,13 +51,16 @@ BAD_FOOD_SUPPLY = 3
 
 BRICK_SPACE = 5
 
-FISH_SPEED = 15
+FISH_SPEED = 10
 
 FISH_WIDTH = 40
 FISH_HEIGHT = 24
 
 SHARK_WIDTH = 24
 SHARK_HEIGHT = 24
+
+OCTOPUS_WIDTH = 28
+OCTOPUS_HEIGHT = 28
 
 VELOCITY_DX = .02
 VELOCITY_DY = .02

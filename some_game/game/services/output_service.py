@@ -2,6 +2,8 @@ import sys
 from game import constants
 import raylibpy
 
+
+
 class OutputService:
     """Outputs the game state. The responsibility of the class of objects is to draw the game state on the terminal. 
     
@@ -40,7 +42,16 @@ class OutputService:
         """
         Draws at rectangular box with the provided specifications.
         """
-        raylibpy.draw_rectangle(x, y, width, height, raylibpy.LIGHTGRAY)
+        if constants.FISH_WIDTH == width:
+            raylibpy.draw_rectangle(x, y, width, height, raylibpy.GREEN)
+        elif constants.FOOD_WIDTH == width:
+            raylibpy.draw_rectangle(x, y, width, height, raylibpy.ORANGE)
+        elif constants.BAD_FOOD_WIDTH == width:
+            raylibpy.draw_rectangle(x, y, width, height, raylibpy.RED)
+        elif constants.OCTOPUS_WIDTH == width:
+            raylibpy.draw_rectangle(x, y, width, height, raylibpy.PINK)
+        else:
+            raylibpy.draw_rectangle(x, y, width, height, raylibpy.LIGHTGRAY)
         # if actor.get_points < 0:
         #     raylibpy.draw_rectangle(x, y, width, height, raylibpy.RED)
         # elif actor.get_points >= 0 or actor. get_points < 90: 

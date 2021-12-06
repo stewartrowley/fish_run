@@ -3,11 +3,11 @@ from os import remove
 from typing import Collection
 import random
 from game import constants
-from game.food import Food
-from game.physics_service import PhysicsService
+from game.cast.food import Food
+from game.services.physics_service import PhysicsService
 from game.point import Point
 from game.action import Action
-from game.scoreboard import ScoreBoard
+from game.cast.scoreboard import ScoreBoard
 from game.actor import Actor
 
 class HandleCollisionsAction(Action):
@@ -67,6 +67,18 @@ class HandleCollisionsAction(Action):
                     for fish_num in remove_fishes:
                         cast_fish.remove(fish_num)
                         remove_fishes.remove(fish)  
+
+        for octopus in cast['octopus']:
+            for fish in cast['fish']:
+                collided2 = physics.is_collision(octopus, fish)
+                if collided2 == True:
+                    get_score1 = octopus.get_points()
+                    score_board.add_points(get_score1)
+                    dx = octopus.get_velocity().get_x()
+                    dy = octopus.get_velocity().get_y()
+                    octopus.set_velocity(Point(dx, -dy))
+
+                    
 
 
 
