@@ -2,6 +2,7 @@ from math import factorial
 from os import remove
 from typing import Collection
 import random
+from game.services.audio_service import AudioService
 from game import constants
 from game.cast.food import Food
 from game.services.physics_service import PhysicsService
@@ -18,6 +19,7 @@ class HandleCollisionsAction(Action):
     def execute(self, cast):
         physics = PhysicsService()
         score_board = cast['scoreboard'][0]
+        audio = AudioService()
    
 
         fish = cast['fish'][0]
@@ -28,8 +30,7 @@ class HandleCollisionsAction(Action):
             collision = physics.is_collision(foods, fish)
             if collision == True:
                 food_remove_list.append(foods)
-
-                
+                audio.play_sound(constants.SOUND_START)
                 for food_num in food_remove_list:
                     if foods == food_num:
                         get_score = food_num.get_points()
@@ -46,6 +47,7 @@ class HandleCollisionsAction(Action):
             collision = physics.is_collision(bad_foods, fish)
             if collision == True:
                 bad_food_remove_list.append(bad_foods)
+                audio.play_sound(constants.SOUND_START)
             for bad_food_num in bad_food_remove_list:
                 if bad_foods == bad_food_num:
                     score = bad_food_num.get_points()
@@ -66,7 +68,9 @@ class HandleCollisionsAction(Action):
                     remove_fishes.append(fish)
                     for fish_num in remove_fishes:
                         cast_fish.remove(fish_num)
-                        remove_fishes.remove(fish)  
+                        remove_fishes.remove(fish) 
+
+ 
 
         for octopus in cast['octopus']:
             for fish in cast['fish']:

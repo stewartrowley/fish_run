@@ -38,7 +38,11 @@ class Director:
 
             # TODO: Add some logic like the following to handle game over conditions
             if len(self._cast["fish"]) == 0:
-                # Game over
+                print('')
+                print('Game Over!!!')
+                # points = self._cast['scoreboard']
+                # score = points.get_points()
+                # print(f'{score}')
                 self._keep_playing = False
 
             if raylibpy.window_should_close():

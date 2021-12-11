@@ -34,8 +34,8 @@ class ResetAction(Action):
                 y = random.randint(100, 550)
                 position = Point(x, y)
                 food = Food()
-                # images = constants.IMAGE_FOOD
-                # food.set_image(images)
+                images = constants.IMAGE_FOOD
+                food.set_image(images)
                 food.set_position(position)
                 food_points = random.randint(1, 10)
                 food.set_points(food_points)
@@ -50,8 +50,8 @@ class ResetAction(Action):
                 y = random.randint(100, 550)
                 position = Point(x, y)
                 bad_food = BadFood()
-                # images = constants.IMAGE_BAD_FOOD
-                # bad_food.set_image(images)
+                images = constants.IMAGE_BAD_FOOD
+                bad_food.set_image(images)
                 bad_food.set_position(position)
                 bad_food_points = random.randint(-10, -1)
                 bad_food.set_points(bad_food_points)

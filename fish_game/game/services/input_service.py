@@ -1,4 +1,6 @@
 import sys
+from game.actor import Actor 
+from game import constants
 from game.point import Point
 import raylibpy
 
@@ -28,20 +30,27 @@ class InputService:
         Returns:
             Point: The selected direction.
         """
+
+        # actor = Actor()
+
         dx = 0
         dy = 0
 
         if self.is_left_pressed():
             dx = -1
+            # actor.set_image(constants.IMAGE_FISH_LEFT)
         
         if self.is_right_pressed():
             dx = 1
+            # actor.set_image(constants.IMAGE_FISH)
         
         if self.is_up_pressed():
             dy = -1
+            # actor.set_image(constants.IMAGE_FISH_TOP)
         
         if self.is_down_pressed():
             dy = 1
+            # actor.set_image(constants.IMAGE_FISH_BOTTOM)
 
         direction = Point(dx, dy)
         return direction

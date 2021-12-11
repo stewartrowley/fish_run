@@ -1,4 +1,5 @@
 
+from datetime import datetime
 from game.cast.scoreboard import ScoreBoard
 from game.action import Action
 from game import constants
@@ -11,12 +12,40 @@ class LevelUpActions(Action):
     def __init__(self) -> None:
         super().__init__()
 
-    def execute(self, cast):
-        pass
-        # points = cast['scoreboard'][0]
-        # score = points.get_points()
-        # cast_shark = cast['shark']
-        # if score >= 50:
+        self.i = 0
+
+    def execute(self, cast):   
+
+        self.i += 1
+        if self.i % constants.SHARK_GENERATOR_NUM == 0:
+
+            sharks = cast['shark']
+            for n in range(2):
+                shark = Shark()
+                shark.make_shark()
+                sharks.append(shark)
+
+
+
+        # time_list = []
+        # for n in range(1):
+        #     now = datetime.now()
+
+        #     current_time = now.strftime("%M")
+        #     time_list.append(current_time)            
+
+        # for time in time_list:
+        #     now = datetime.now()
+        #     future_time = now.strftime("%M")
+        #     if future_time == time:
+        #         sharks = []
+        #         for n in range(2):
+        #             shark = Shark()
+        #             shark.make_shark()
+        #             sharks.append(shark)
+        #         cast['shark'] = sharks
+
+
         #     shark_list = []
         #     for n in cast_shark:
         #         shark_list.append(n)

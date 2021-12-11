@@ -1,7 +1,7 @@
 import os
-os.environ['RAYLIB_BIN_PATH'] = r'C:\Users\StewM\Documents\BYU Idaho\Fall 2021\programmingCourses\CSE210_personal\cseFinalProject\fish_run\some_game\raylib-2.0.0-Win64-mingw\lib'
+os.environ['RAYLIB_BIN_PATH'] = r'C:\Users\StewM\Documents\BYU Idaho\Fall 2021\programmingCourses\CSE210_personal\cseFinalProject\fish_run\fish_game\raylib-2.0.0-Win64-mingw\lib'
 
-
+from datetime import datetime
 from game.script.move_actors_action import MoveActorsAction
 from game.script.level_up_action import LevelUpActions
 from game.script.reset_action import ResetAction
@@ -44,11 +44,11 @@ def main():
     position = Point(x, y)
     fish = Fish()
     velocity = Point(0, 0)
-    # image = constants.IMAGE_FISH
-    # fish.set_image(image)
+    image = constants.IMAGE_FISH
+    fish.set_image(image)
     fish.set_velocity(velocity)
     fish.set_position(position)
-    fishes.append(fish)
+    fishes.append(fish) 
 
     cast["fish"] = [fish]
 
@@ -60,8 +60,8 @@ def main():
         bad_food = BadFood()
         bad_food.set_position(position)
         bad_food_points = random.randint(-10, -1)
-        # images = constants.IMAGE_BAD_FOOD
-        # bad_food.set_image(images)
+        images = constants.IMAGE_BAD_FOOD
+        bad_food.set_image(images)
         bad_food.set_points(bad_food_points)
         bad_foods.append(bad_food)
 
@@ -76,37 +76,30 @@ def main():
         food = Food()
         food.set_position(position)
         food_points = random.randint(1, 10)
-        # images = constants.IMAGE_FOOD
-        # food.set_image(images)
+        images = constants.IMAGE_FOOD
+        food.set_image(images)
         food.set_points(food_points)
         foods.append(food)
 
     sharks = []
-    cast["shark"] = sharks
-    for n in range(3):
+    for n in range(0, 2):
         shark = Shark()
-        x = random.randint(0, 0)
-        y = random.randint(100, 500)
-        position = Point(x, y)
-        velocity_position = (Point((random.randint(1, constants.SHARK_DX) / 15), 0))
-        # images = constants.IMAGE_SHARK
-        # shark.set_image(images)
-        shark.set_position(position)
-        shark.set_velocity(velocity_position)
+        shark.make_shark()
         sharks.append(shark)
+    cast["shark"] = sharks
 
     octopuses = []
     cast["octopus"] = octopuses
-    for n in range(2):
+    for n in range(3):
         octopus = Octopus()
         x = random.randint(100, 500)
         y = random.randint(0, 0)
         position = Point(x, y)
         velocity_position = (Point(0, (random.randint(1, constants.SHARK_DX) / 5)))
-        # images = constants.IMAGE_OCTOPUS
+        images = constants.IMAGE_OCTOPUS
         octopus_points = -1
         octopus.set_points(octopus_points)
-        # octopus.set_image(images)
+        octopus.set_image(images)
         octopus.set_position(position)
         octopus.set_velocity(velocity_position)
         octopuses.append(octopus)
@@ -147,7 +140,7 @@ def main():
     # Start the game
     output_service.open_window("Fish Run")
     audio_service.start_audio()
-    # audio_service.play_sound(constants.SOUND_START)
+    audio_service.play_sound(constants.SOUND_START)
 
     director = Director(cast, script)
     director.start_game()

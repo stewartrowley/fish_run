@@ -14,14 +14,14 @@ class HandleOffScreenAction(Action):
                 dx = shark.get_velocity().get_x()
                 dy = shark.get_velocity().get_y()
 
-                if x > 750:
+                if x > 775:
                         # shark.set_position(Point(x, -y))
-                    # reverse_image = constants.IMAGE_SHARK2
+                    reverse_image = constants.IMAGE_SHARK2
                     shark.set_velocity(Point(-dx, dy))
-                    # shark.set_image(reverse_image)
-                # if x < 5:
-                #     reverse_image = constants.IMAGE_SHARK
-                #     shark.set_image(reverse_image)
+                    shark.set_image(reverse_image)
+                if x < 5:
+                    reverse_image = constants.IMAGE_SHARK
+                    shark.set_image(reverse_image)
 
                 # elif x < 0:
                 #     shark.set_velocity(Point(-dx, dy))
